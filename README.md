@@ -1,12 +1,12 @@
-# Lab16-Event Driven Application
+# Lab16-TCP
 
-## Event Driven Application
+## TCP Server
 
 ### Author: Shubham Majumdar
 
 ### Links and Resources
-* [submission PR](https://github.com/Shubham-401n16/Lab-16-Event-Driven-Applications/pull/1)
-* [Github Actions](https://github.com/Shubham-401n16/Lab-16-Event-Driven-Applications/actions)
+* [submission PR](https://github.com/Shubham-401n16/Lab17---TCP-Server/pull/1)
+* [Github Actions](https://github.com/Shubham-401n16/Lab17---TCP-Server/actions)
 
 #### Documentation
 * [api docs](http://xyz.com/api-docs) (API servers)
