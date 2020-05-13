@@ -8,28 +8,24 @@ socket.connect({ port: 3000, host: 'localhost' }, () => {
 });
 
 socket.on('data', (payload) => {
-    let stringPayload = Buffer.from(payload).toString();
-    //let jsonPayload = {};
-    jsonPayload = JSON.parse(stringPayload);
+    let jsonPayload = JSON.parse(payload.toString());
 
-    // try {
-    //     jsonPayload = JSON.parse(stringPayload);
-    // } catch (e) {
-    //     jsonPayload = {};
-    // }
+    if (jsonPayload.event === 'pickup'){
+    setTimeout(()=> {
 
-    if (jsonPayload.event === 'pickup')
-    setInterval(()=> {
-
-        console.log('Picked up order#', jsonPayload.content.orderId);
-        socket.write(JSON.stringify({event: 'in-transit', content: jsonPayload.content}))
+        let newPayLoad = {event: 'in-transit',order: jsonPayload.customerOrder}
+        console.log('Picked up order#', jsonPayload.customerOrder.orderId);
+        socket.write(JSON.stringify(newPayLoad));
     },1000)
+};
 
-
+if (jsonPayload.event === 'in-transit'){
     setInterval(()=> {
-
-        console.log('delivered order #', jsonPayload.content.orderId);
-        socket.write(JSON.stringify({event: 'delivered', content: jsonPayload.content}))
+        let newPayLoad = {event: 'delivered',order: jsonPayload.customerOrder}
+        console.log('delivered order #', jsonPayload.customerOrder.orderId);
+        socket.write(JSON.stringify(newPayLoad));
     },3000)
+
+};
     
 });
