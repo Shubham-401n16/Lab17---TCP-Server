@@ -4,8 +4,8 @@ const net = require('net');
 const socket = net.Socket();
 const faker = require('faker');
 
-socket.connect({port: 3000, host: 'localhost '}, () => {
-    console.log('Connected  to CSPS Server');
+socket.connect({ port: 3000, host: 'localhost' }, () => {
+    console.log('Connected to CSPS Server!');
 });
 
 setInterval(() =>{
